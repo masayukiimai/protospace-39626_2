@@ -72,3 +72,6 @@ group :test do
 end
 gem 'devise'
 gem 'mini_magick'
+group :production do
+  gem 'pg'
+end
