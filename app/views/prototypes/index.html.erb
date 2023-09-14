@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>トップページ</title>
+  <%= stylesheet_link_tag 'style' %>
+</head>
+<body>
+  <header>
+
+  </header>
+
+  <h1>プロトタイプ一覧</h1>
+
+<% @prototypes.each do |prototype| %>
+  <div>
+    <h2><%= prototype.title %></h2>
+    <p><%= prototype.catch_copy %></p>
+    <p><%= prototype.concept %></p>
+    <!-- プロトタイプのリンクを追加 -->
+    <%= link_to "詳細を見る", prototype_path(prototype) %>
+  </div>
+<% end %>
+
+  <footer>
+    <!-- ここにフッターの内容を記述 -->
+  </footer>
+</body>
+</html>

@@ -1,0 +1,32 @@
+
+<%= form_with(model: @prototype, url: prototypes_path, method: :post, local: true, multipart: true) do |form| %>
+  <!-- プロトタイプの情報入力フォーム -->
+
+
+  <div class="field">
+    <%= form.label :title, "プロトタイプの名称"%><br>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :catch_copy, "キャッチコピー" %><br>
+    <%= form.text_area :catch_copy %>
+  </div>
+
+  <div class="field">
+    <%= form.label :concept,  "コンセプト" %><br>
+    <%= form.text_area :concept %>
+  </div>
+
+  <!-- 画像アップロードフォーム -->
+  <div class="field">
+    <%= form.label :image, "プロトタイプの画像"%><br>
+    <%= form.file_field :image %>
+  </div>
+
+  <!-- 送信ボタン -->
+  <div class="actions">
+    <%= form.submit "保存する" %>
+  </div>
+<% end %>
+<%= render 'form', prototype: @prototype %>
