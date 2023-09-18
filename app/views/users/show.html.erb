@@ -1,18 +1,6 @@
 <div class="main">
   <div class="inner">
     <div class="user__wrapper">
-      <th class="table__col1">プロフィール</th>
-      <td class="table__col2"><%= @user.profile %></td>
-    </tr>
-    <tr>
-      <td class="table__col2"><%= @user.occupation %></td> <!-- モデルの正しい属性名を使用 -->
-    </tr>
-    <tr>
-      <th class="table__col1">役職</th>
-      <td class="table__col2"><%= @user.position %></td>
-    </tr>
-  </tbody>
-</table>
       <h2 class="page-heading">
         <%= "#{@user.name}さんの情報" %> <!-- @user.name でユーザーの名前を表示 -->
       </h2>
