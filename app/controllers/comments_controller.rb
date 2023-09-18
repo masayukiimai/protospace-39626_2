@@ -3,6 +3,12 @@ class CommentsController < ApplicationController
     @prototype = Prototype.find(params[:prototype_id])
     @comment = @prototype.comments.build(comment_params)
     @comment.user = current_user
+    if @comment.save
+      redirect_to prototype_path(@prototype)
+    else
+      @comments = @prototype.comments
+      render 'prototypes/show'  and return
+    end
 
     if @comment.save
       redirect_to prototype_path(@prototype), notice: 'コメントが投稿されました'

@@ -1,5 +1,6 @@
 class PrototypesController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show] # ユーザーがログインしていることを確認します
+  before_action :correct_user, only: [:edit, :update, :destroy]
   def index
     @prototypes = Prototype.all
     end
@@ -50,4 +51,16 @@ class PrototypesController < ApplicationController
       end
       end
     
-  
+      def set_prototype
+        @prototype = Prototype.find(params[:id])
+      end
+    
+      def contributor_confirmation
+        redirect_to root_path unless current_user == @prototype.user
+      end
+      def correct_user
+        @prototype = Prototype.find(params[:id])
+        unless current_user == @prototype.user
+          redirect_to root_path, alert: 'アクセス権限がありません。' # もしそれらが異なる場合、トップページにリダイレクトします
+      end
+    end

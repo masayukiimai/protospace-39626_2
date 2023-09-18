@@ -18,7 +18,6 @@
     <nav class="nav">
       <ul>
         <% if user_signed_in? %>
-        <li>こんにちは、<%= current_user.name %>さん</li>
           <li><%= link_to "New proto", new_prototype_path %></li> 
           <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
         <% else %>
